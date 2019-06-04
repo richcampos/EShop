@@ -59,7 +59,7 @@ function Notifications(props) {
 class Navbar extends React.Component {
   render() {
     return(
-      <div className="Navbar">
+      <div className="Navbar nav justify-content-between">
         <Link className="nav-link" to="/">
           <h1>EShop</h1>
         </Link>
@@ -69,7 +69,7 @@ class Navbar extends React.Component {
               <Greeting isLogged={this.props.log} userData={this.props.data}/>
               <Dropdown.Menu>
                 <Dropdown.Item>
-                  <LogInOut/>
+                  <LogInOut isLogged={this.props.log} userData={this.props.data}/>
                 </Dropdown.Item>
                 <Dropdown.Item>
                   <Orders isLogged={this.props.log} userData={this.props.data}/>

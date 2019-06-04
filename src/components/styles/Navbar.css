@@ -2,4 +2,7 @@
   width: 100%;
   padding: 0.2rem 0;
   background-color: #1C3643;
+  position: fixed;
+  top: 0;
+  z-index: 999;
 }
