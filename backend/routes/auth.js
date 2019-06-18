@@ -2,16 +2,12 @@ const router = require('express').Router();
 const User = require('../models/User');
 const passport = require('passport');
 
-//multer config 
-const multer = require('multer');
-const upload = multer({dest: './public/assets'});
-
 router.get('/logout', (req,res,next) => {
   req.logout();
   res.send('cerrado');
 });
 
-router.post('/login', (req,res,next) => {
+router.post('/login', passport.authenticate('local'), (req,res,next) => {
   req.app.locals.user = req.user;
   res.json(req.user);
 });
@@ -23,3 +19,5 @@ router.post('/signup', (req,res,next) => {
   })
   .catch(e => next(e));
 });
+
+module.exports = router;
